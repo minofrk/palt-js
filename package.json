@@ -1,0 +1,44 @@
+{
+  "name": "@minofrk/palt",
+  "version": "0.0.0",
+  "description": "Convert between calendars in Kaldia and gregorian calendar.",
+  "keywords": [
+    "arka",
+    "calendar",
+    "conlang",
+    "conworld",
+    "gregorian"
+  ],
+  "homepage": "https://github.com/minofrk/palt-js",
+  "bugs": {
+    "url": "https://github.com/minofrk/palt-js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minofrk/palt-js.git"
+  },
+  "license": "MIT",
+  "author": "古城みの <minofrk@gmail.com>",
+  "files": [
+    "lib",
+    "umd"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc && webpack",
+    "clean": "rimraf lib umd",
+    "test": "mocha test/**/*.test.ts --require ts-node-test-register"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.15",
+    "mocha": "^5.2.0",
+    "rimraf": "^2.6.2",
+    "ts-loader": "^5.3.1",
+    "ts-node": "^7.0.1",
+    "ts-node-test-register": "^4.0.0",
+    "typescript": "^3.2.2",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
