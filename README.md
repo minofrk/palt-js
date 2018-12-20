@@ -1,9 +1,9 @@
 @minofrk/palt
 ===============================================================================
 
-![](https://img.shields.io/npm/v/@minofrk/palt.svg?style=flat-square)
-![](https://img.shields.io/travis/com/minofrk/palt-js.svg?style=flat-square)
-![](https://img.shields.io/github/license/minofrk/palt-js.svg?style=flat-square)
+[![NPM Version](https://img.shields.io/npm/v/@minofrk/palt.svg?style=flat-square)](https://www.npmjs.com/package/@minofrk/palt)
+[![Build Status](https://img.shields.io/travis/com/minofrk/palt-js/master.svg?style=flat-square)](https://travis-ci.com/minofrk/palt-js)
+[![License](https://img.shields.io/github/license/minofrk/palt-js.svg?style=flat-square)](LICENSE)
 
 グレゴリオ暦（年/月/日）と以下の暦との間で相互変換を行うライブラリです。
 
