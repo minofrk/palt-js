@@ -20,6 +20,7 @@
   "license": "MIT",
   "author": "古城みの <minofrk@gmail.com>",
   "files": [
+    "src",
     "lib",
     "umd"
   ],
