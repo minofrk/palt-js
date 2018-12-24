@@ -1,6 +1,6 @@
 {
   "name": "@minofrk/palt",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Convert between calendars in Kaldia and gregorian calendar.",
   "keywords": [
     "arka",
