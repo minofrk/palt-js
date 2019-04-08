@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "config:base",
+    ":automergePatch",
+    ":unpublishSafe",
+    ":prNotPending",
+    "helpers:disableTypesNodeMajor"
+  ],
+  "labels": [
+    "renovate"
+  ],
+  "rangeStrategy": "bump"
+}
