@@ -40,6 +40,6 @@
     "ts-node-test-register": "^8.0.1",
     "typescript": "~3.4.5",
     "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.1"
+    "webpack-cli": "^3.3.2"
   }
 }
