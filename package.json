@@ -31,7 +31,7 @@
     "test": "mocha test/**/*.test.ts --require ts-node-test-register"
   },
   "devDependencies": {
-    "@types/mocha": "^5.2.6",
+    "@types/mocha": "^5.2.7",
     "@types/node": "^11.13.12",
     "mocha": "^6.1.4",
     "rimraf": "^2.6.3",
