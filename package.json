@@ -28,12 +28,19 @@
   "scripts": {
     "build": "tsc && webpack",
     "clean": "rimraf lib umd coverage",
-    "test": "jest"
+    "test": "jest && npm run lint",
+    "lint": "eslint src test --ext ts"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
     "@types/node": "^11.13.13",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "jest": "^24.8.0",
+    "prettier": "^1.17.1",
     "rimraf": "^2.6.3",
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.2",

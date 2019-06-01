@@ -11,9 +11,9 @@ export function daysSinceYearZero(date: YearMonthDay): number {
 export function daysToYearMonthDay(days: number): YearMonthDay {
     const date = new Date(days * msecsInDay + epoch);
     return {
-        year : date.getUTCFullYear(),
+        year: date.getUTCFullYear(),
         month: date.getUTCMonth() + 1,
-        day  : date.getUTCDate(),
+        day: date.getUTCDate(),
     };
 }
 
