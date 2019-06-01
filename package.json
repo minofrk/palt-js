@@ -27,17 +27,16 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc && webpack",
-    "clean": "rimraf lib umd",
-    "test": "mocha test/**/*.test.ts --require ts-node-test-register"
+    "clean": "rimraf lib umd coverage",
+    "test": "jest"
   },
   "devDependencies": {
-    "@types/mocha": "^5.2.7",
+    "@types/jest": "^24.0.13",
     "@types/node": "^11.13.13",
-    "mocha": "^6.1.4",
+    "jest": "^24.8.0",
     "rimraf": "^2.6.3",
+    "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.2",
-    "ts-node": "^8.2.0",
-    "ts-node-test-register": "^8.0.1",
     "typescript": "~3.4.5",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
