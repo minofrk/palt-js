@@ -28,7 +28,7 @@
   "scripts": {
     "build": "tsc && webpack",
     "clean": "rimraf lib umd coverage",
-    "test": "jest && npm run lint",
+    "test": "tsc --noEmit && jest && npm run lint",
     "lint": "eslint src test --ext ts"
   },
   "devDependencies": {
