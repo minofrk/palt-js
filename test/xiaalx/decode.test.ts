@@ -1,19 +1,24 @@
 /* eslint prettier/prettier: 0 */
 import assert from 'assert';
-import testCases from './test-cases';
+import testCases from './test-cases.json';
 import { xiaalx, YearMonthDay } from '../../src';
 
 describe('xiaalx.decode', (): void => {
-    it('should throw with invalid numbers.', (): void => {
-        assert.doesNotThrow((): YearMonthDay => xiaalx.decode(0));
-        assert.throws((): YearMonthDay => xiaalx.decode(Infinity));
-        assert.throws((): YearMonthDay => xiaalx.decode(Number.NaN));
-        assert.throws((): YearMonthDay => xiaalx.decode(0.1));
+    it.each([
+        0,
+    ])('should not throw with valid numbers. (%#)', (value): void => {
+        assert.doesNotThrow((): YearMonthDay => xiaalx.decode(value));
     });
 
-    it('should return correct milpalt from xiaalx.', (): void => {
-        testCases.forEach((item): void => {
-            assert.deepStrictEqual(xiaalx.decode(item.xiaalx), item.milpalt);
-        });
+    it.each([
+        Infinity,
+        Number.NaN,
+        0.1,
+    ])('should throw with invalid numbers. (%#)', (value): void => {
+        assert.throws((): YearMonthDay => xiaalx.decode(value));
+    });
+
+    it.each(testCases)('should return correct milpalt from xiaalx. (%#)', (item): void => {
+        assert.deepStrictEqual(xiaalx.decode(item.xiaalx), item.milpalt);
     });
 });

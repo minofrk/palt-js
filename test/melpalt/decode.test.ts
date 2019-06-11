@@ -1,42 +1,52 @@
 /* eslint prettier/prettier: 0 */
 import assert from 'assert';
-import testCases from './test-cases';
+import testCases from './test-cases.json';
 import { melpalt, YearMonthDay } from '../../src';
 
 describe('melpalt.decode', (): void => {
-    it('should throw with invalid numbers.', (): void => {
-        assert.doesNotThrow((): YearMonthDay => melpalt.decode({ year: 0, month: 1, day: 1 }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: Infinity, month: 1, day: 1 }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 0, month: Infinity, day: 1 }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 0, month: 1, day: Infinity }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: Number.NaN, month: 1, day: 1 }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 0, month: Number.NaN, day: 1 }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 0, month: 1, day: Number.NaN }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 0.1, month: 1, day: 1 }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 0, month: 1.1, day: 1 }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 0, month: 1, day: 1.1 }));
+    it.each([
+        { year: 0, month: 1, day: 1 },
+    ])('should not throw with valid numbers. (%#)', (item): void => {
+        assert.doesNotThrow((): YearMonthDay => melpalt.decode(item));
     });
 
-    it('should throw with invalid melpalt.', (): void => {
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 30, month: 0, day: 1 }));
-        assert.doesNotThrow((): YearMonthDay => melpalt.decode({ year: 30, month: 1, day: 1 }));
-        assert.doesNotThrow((): YearMonthDay => melpalt.decode({ year: 30, month: 14, day: 1 }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 30, month: 15, day: 1 }));
-
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 30, month: 1, day: 0 }));
-        assert.doesNotThrow((): YearMonthDay => melpalt.decode({ year: 30, month: 1, day: 1 }));
-        assert.doesNotThrow((): YearMonthDay => melpalt.decode({ year: 30, month: 1, day: 28 }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 30, month: 1, day: 29 }));
-
-        assert.doesNotThrow((): YearMonthDay => melpalt.decode({ year: 30, month: 14, day: 1 }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 30, month: 14, day: 2 }));
-        assert.doesNotThrow((): YearMonthDay => melpalt.decode({ year: 4, month: 14, day: 2 }));
-        assert.throws((): YearMonthDay => melpalt.decode({ year: 4, month: 14, day: 3 }));
+    it.each([
+        { year: Infinity, month: 1, day: 1 },
+        { year: 0, month: Infinity, day: 1 },
+        { year: 0, month: 1, day: Infinity },
+        { year: Number.NaN, month: 1, day: 1 },
+        { year: 0, month: Number.NaN, day: 1 },
+        { year: 0, month: 1, day: Number.NaN },
+        { year: 0.1, month: 1, day: 1 },
+        { year: 0, month: 1.1, day: 1 },
+        { year: 0, month: 1, day: 1.1 },
+    ])('should throw with invalid numbers. (%#)', (item): void => {
+        assert.throws((): YearMonthDay => melpalt.decode(item));
     });
 
-    it('should return correct milpalt from melpalt.', (): void => {
-        testCases.forEach((item): void => {
-            assert.deepStrictEqual(melpalt.decode(item.melpalt), item.milpalt);
-        });
+    it.each([
+        { year: 30, month: 1, day: 1 },
+        { year: 30, month: 14, day: 1 },
+        { year: 30, month: 1, day: 1 },
+        { year: 30, month: 1, day: 28 },
+        { year: 30, month: 14, day: 1 },
+        { year: 4, month: 14, day: 2 },
+    ])('should not throw with valid melpalt. (%#)', (item): void => {
+        assert.doesNotThrow((): YearMonthDay => melpalt.decode(item));
+    });
+
+    it.each([
+        { year: 30, month: 0, day: 1 },
+        { year: 30, month: 15, day: 1 },
+        { year: 30, month: 1, day: 0 },
+        { year: 30, month: 1, day: 29 },
+        { year: 30, month: 14, day: 2 },
+        { year: 4, month: 14, day: 3 },
+    ])('should throw with invalid melpalt. (%#)', (item): void => {
+        assert.throws((): YearMonthDay => melpalt.decode(item));
+    });
+
+    it.each(testCases)('should return correct milpalt from melpalt. (%#)', (item): void => {
+        assert.deepStrictEqual(melpalt.decode(item.melpalt), item.milpalt);
     });
 });
