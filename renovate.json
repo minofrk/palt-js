@@ -1,11 +1,13 @@
 {
   "extends": [
     "config:base",
-    ":automergePatch",
+    ":automergeMinor",
     ":unpublishSafe",
     ":prNotPending",
-    "helpers:disableTypesNodeMajor"
+    ":noUnscheduledUpdates",
+    ":timezone(Asia/Tokyo)"
   ],
+  "schedule": "every weekend",
   "labels": [
     "renovate"
   ],
